@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { createTask, getTask, updateTask } from "@/lib/api";
 import type { Task } from "@/lib/types";
 import { PlusIconTask, ArrowLeftIcon, CheckIcon } from "./icons";
-import { colorToBg } from "@/lib/colors";
 
 const COLORS = ["red","orange","yellow","green","blue","indigo","purple","pink","brown"] as const;
 type Color = typeof COLORS[number];
@@ -112,4 +111,18 @@ export function TaskForm({ taskId }: { taskId?: number }) {
   );
 }
 
+function colorToBg(c: string) {
+  switch (c) {
+    case "red": return "bg-red-500";
+    case "orange": return "bg-orange-400";
+    case "yellow": return "bg-yellow-400";
+    case "green": return "bg-green-500";
+    case "blue": return "bg-blue-500";
+    case "indigo": return "bg-indigo-500";
+    case "purple": return "bg-purple-500";
+    case "pink": return "bg-pink-500";
+    case "brown": return "bg-amber-700";
+    default: return "bg-gray-500";
+  }
+}
 
