@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import "./globals.css";
+import { RocketIcon } from "@/components/icons";
 
 export const metadata = {
   title: "Todo App",
@@ -21,15 +22,5 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <main className="mx-auto max-w-3xl px-6 py-10">{children}</main>
       </body>
     </html>
-  );
-}
-
-function RocketIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" {...props}>
-      <path d="M14 4c2.5 1 4.5 3 5.5 5.5l-3 3-4-4 1.5-4.5z" stroke="currentColor" strokeWidth="1.5"/>
-      <path d="M12 8l4 4-6 6-3-3 5-7z" stroke="currentColor" strokeWidth="1.5"/>
-      <circle cx="15" cy="7" r="1" fill="currentColor"/>
-    </svg>
   );
 }

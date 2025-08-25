@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { TaskCard } from "@/components/TaskCard";
 import { getTasks, toggleTask, deleteTask } from "@/lib/api";
 import type { Task } from "@/lib/types";
+import { PlusIcon, EmptyIcon } from "@/components/icons";
 
 export default function HomePage() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -105,18 +106,3 @@ export default function HomePage() {
   );
 }
 
-function PlusIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" {...props}>
-      <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
-function EmptyIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" {...props}>
-      <rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-      <path d="M8 7h8M8 11h8M8 15h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    </svg>
-  );
-}

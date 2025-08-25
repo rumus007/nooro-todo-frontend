@@ -3,6 +3,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { createTask, getTask, updateTask } from "@/lib/api";
 import type { Task } from "@/lib/types";
+import { PlusIconTask, ArrowLeftIcon, CheckIcon } from "./icons";
+import { colorToBg } from "@/lib/colors";
 
 const COLORS = ["red","orange","yellow","green","blue","indigo","purple","pink","brown"] as const;
 type Color = typeof COLORS[number];
@@ -101,7 +103,7 @@ export function TaskForm({ taskId }: { taskId?: number }) {
             </>
           ) : (
             <>
-              Add Task <PlusIcon className="h-5 w-5" />
+              Add Task <PlusIconTask className="h-5 w-5" />
             </>
           )}
         </button>
@@ -110,26 +112,4 @@ export function TaskForm({ taskId }: { taskId?: number }) {
   );
 }
 
-function colorToBg(c: string) {
-  switch (c) {
-    case "red": return "bg-red-500";
-    case "orange": return "bg-orange-400";
-    case "yellow": return "bg-yellow-400";
-    case "green": return "bg-green-500";
-    case "blue": return "bg-blue-500";
-    case "indigo": return "bg-indigo-500";
-    case "purple": return "bg-purple-500";
-    case "pink": return "bg-pink-500";
-    case "brown": return "bg-amber-700";
-    default: return "bg-gray-500";
-  }
-}
-function ArrowLeftIcon(props: React.SVGProps<SVGSVGElement>) {
-  return <svg viewBox="0 0 24 24" fill="none" {...props}><path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>;
-}
-function PlusIcon(props: React.SVGProps<SVGSVGElement>) {
-  return <svg viewBox="0 0 24 24" fill="none" {...props}><path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>;
-}
-function CheckIcon(props: React.SVGProps<SVGSVGElement>) {
-  return <svg viewBox="0 0 24 24" fill="none" {...props}><path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>;
-}
+

@@ -1,6 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
 import type { Task } from "@/lib/types";
+import { TrashIcon, CheckIconCard } from "./icons";
+import { colorToBg } from "@/lib/colors";
 
 export function TaskCard({
   task,
@@ -26,7 +28,7 @@ export function TaskCard({
             task.completed ? "border-sky-500 bg-sky-600" : "border-gray-600"
           }`}
         >
-          {task.completed && <CheckIcon className="h-3.5 w-3.5 text-white" />}
+          {task.completed && <CheckIconCard className="h-3.5 w-3.5 text-white" />}
         </span>
       </button>
 
@@ -58,32 +60,4 @@ export function TaskCard({
   );
 }
 
-function colorToBg(c: string) {
-  switch (c) {
-    case "red": return "bg-red-500";
-    case "orange": return "bg-orange-400";
-    case "yellow": return "bg-yellow-400";
-    case "green": return "bg-green-500";
-    case "blue": return "bg-blue-500";
-    case "indigo": return "bg-indigo-500";
-    case "purple": return "bg-purple-500";
-    case "pink": return "bg-pink-500";
-    case "brown": return "bg-amber-700";
-    default: return "bg-gray-500";
-  }
-}
 
-function CheckIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" {...props}>
-      <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-}
-function TrashIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" {...props}>
-      <path d="M3 6h18M9 6V4h6v2M8 10v8M12 10v8M16 10v8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    </svg>
-  );
-}
